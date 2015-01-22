@@ -59,8 +59,8 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 
-<div id="abstract" class="section level4">
-<h4>Abstract</h4>
+<div id="abstract" class="section level3">
+<h3>- Abstract</h3>
 <p>The goal of your project is to predict the manner in which they did the exercise. This is the ’classe&quot; variable in the training set.</p>
 <hr />
 </div>
@@ -110,103 +110,103 @@ print(rfModel)</code></pre>
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 7
 ## 
-##         OOB estimate of  error rate: 0.61%
+##         OOB estimate of  error rate: 0.65%
 ## Confusion matrix:
 ##      A    B    C    D    E class.error
-## A 3344    4    0    0    0 0.001194743
-## B   13 2260    6    0    0 0.008336990
-## C    0   14 2039    1    0 0.007302824
-## D    0    0   28 1902    0 0.014507772
-## E    0    0    2    4 2159 0.002771363</code></pre>
+## A 3342    3    1    1    1 0.001792115
+## B   13 2262    4    0    0 0.007459412
+## C    0   15 2035    4    0 0.009250243
+## D    0    0   26 1900    4 0.015544041
+## E    0    0    1    4 2160 0.002309469</code></pre>
 <p>And proceed with the verification of variable importance measures as produced by random Forest, validation is also applied on traing.valid data set.</p>
 <pre class="r"><code>importance(rfModel)</code></pre>
 <pre><code>##                      MeanDecreaseGini
-## roll_belt                   730.45604
-## pitch_belt                  408.21690
-## yaw_belt                    537.69511
-## total_accel_belt            131.66007
-## gyros_belt_x                 59.40865
-## gyros_belt_y                 65.92227
-## gyros_belt_z                186.18417
-## accel_belt_x                 71.79798
-## accel_belt_y                 77.34535
-## accel_belt_z                230.56317
-## magnet_belt_x               146.26267
-## magnet_belt_y               247.90534
-## magnet_belt_z               235.97824
-## roll_arm                    186.46143
-## pitch_arm                   105.45150
-## yaw_arm                     146.29159
-## total_accel_arm              59.36782
-## gyros_arm_x                  80.96462
-## gyros_arm_y                  82.70586
-## gyros_arm_z                  39.60795
-## accel_arm_x                 146.37110
-## accel_arm_y                  97.08371
-## accel_arm_z                  77.42471
-## magnet_arm_x                176.61689
-## magnet_arm_y                125.38661
-## magnet_arm_z                111.75706
-## roll_dumbbell               257.12794
-## pitch_dumbbell              105.20939
-## yaw_dumbbell                149.34473
-## total_accel_dumbbell        159.36099
-## gyros_dumbbell_x             83.21131
-## gyros_dumbbell_y            157.73142
-## gyros_dumbbell_z             52.16005
-## accel_dumbbell_x            157.38470
-## accel_dumbbell_y            235.59998
-## accel_dumbbell_z            195.83412
-## magnet_dumbbell_x           289.63931
-## magnet_dumbbell_y           395.89880
-## magnet_dumbbell_z           458.48705
-## roll_forearm                348.94397
-## pitch_forearm               459.76067
-## yaw_forearm                 106.30604
-## total_accel_forearm          68.07366
-## gyros_forearm_x              49.84529
-## gyros_forearm_y              77.95872
-## gyros_forearm_z              55.20460
-## accel_forearm_x             213.89787
-## accel_forearm_y              82.98972
-## accel_forearm_z             154.91634
-## magnet_forearm_x            136.87856
-## magnet_forearm_y            128.67794
-## magnet_forearm_z            164.34593</code></pre>
+## roll_belt                   761.14449
+## pitch_belt                  408.22931
+## yaw_belt                    526.75569
+## total_accel_belt            137.93728
+## gyros_belt_x                 57.90797
+## gyros_belt_y                 64.81941
+## gyros_belt_z                162.63232
+## accel_belt_x                 71.64801
+## accel_belt_y                 78.89461
+## accel_belt_z                230.39385
+## magnet_belt_x               150.52228
+## magnet_belt_y               237.96872
+## magnet_belt_z               241.69663
+## roll_arm                    192.88809
+## pitch_arm                   101.17869
+## yaw_arm                     155.07342
+## total_accel_arm              59.86295
+## gyros_arm_x                  82.08229
+## gyros_arm_y                  80.62159
+## gyros_arm_z                  37.92021
+## accel_arm_x                 142.39820
+## accel_arm_y                  97.37944
+## accel_arm_z                  80.64739
+## magnet_arm_x                149.43775
+## magnet_arm_y                134.95284
+## magnet_arm_z                112.53634
+## roll_dumbbell               265.26097
+## pitch_dumbbell              107.91831
+## yaw_dumbbell                156.63507
+## total_accel_dumbbell        165.53026
+## gyros_dumbbell_x             74.39546
+## gyros_dumbbell_y            141.98558
+## gyros_dumbbell_z             52.18079
+## accel_dumbbell_x            149.31485
+## accel_dumbbell_y            253.32398
+## accel_dumbbell_z            199.48967
+## magnet_dumbbell_x           286.00685
+## magnet_dumbbell_y           410.17732
+## magnet_dumbbell_z           440.37924
+## roll_forearm                350.89560
+## pitch_forearm               480.19969
+## yaw_forearm                 101.61226
+## total_accel_forearm          70.30389
+## gyros_forearm_x              48.94078
+## gyros_forearm_y              79.43196
+## gyros_forearm_z              52.55643
+## accel_forearm_x             195.75491
+## accel_forearm_y              84.12955
+## accel_forearm_z             145.61190
+## magnet_forearm_x            134.13552
+## magnet_forearm_y            132.83482
+## magnet_forearm_z            173.91096</code></pre>
 <pre class="r"><code>cfMat &lt;- confusionMatrix(predict(rfModel,newdata=training.valid), training.valid$classe)
 cfMat</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2231   15    0    0    0
-##          B    0 1501   14    0    0
-##          C    0    2 1351   18    2
-##          D    0    0    3 1264    6
-##          E    1    0    0    4 1434
+##          A 2232   13    0    0    0
+##          B    0 1498   11    0    0
+##          C    0    7 1354   25    3
+##          D    0    0    3 1261    4
+##          E    0    0    0    0 1435
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9917          
-##                  95% CI : (0.9895, 0.9936)
+##                Accuracy : 0.9916          
+##                  95% CI : (0.9893, 0.9935)
 ##     No Information Rate : 0.2845          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.9895          
+##                   Kappa : 0.9894          
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9996   0.9888   0.9876   0.9829   0.9945
-## Specificity            0.9973   0.9978   0.9966   0.9986   0.9992
-## Pos Pred Value         0.9933   0.9908   0.9840   0.9929   0.9965
-## Neg Pred Value         0.9998   0.9973   0.9974   0.9967   0.9988
+## Sensitivity            1.0000   0.9868   0.9898   0.9806   0.9951
+## Specificity            0.9977   0.9983   0.9946   0.9989   1.0000
+## Pos Pred Value         0.9942   0.9927   0.9748   0.9945   1.0000
+## Neg Pred Value         1.0000   0.9968   0.9978   0.9962   0.9989
 ## Prevalence             0.2845   0.1935   0.1744   0.1639   0.1838
-## Detection Rate         0.2843   0.1913   0.1722   0.1611   0.1828
-## Detection Prevalence   0.2863   0.1931   0.1750   0.1622   0.1834
-## Balanced Accuracy      0.9984   0.9933   0.9921   0.9908   0.9968</code></pre>
-<p>And it is found that the accuracy on training set is 0.9917155.</p>
+## Detection Rate         0.2845   0.1909   0.1726   0.1607   0.1829
+## Detection Prevalence   0.2861   0.1923   0.1770   0.1616   0.1829
+## Balanced Accuracy      0.9988   0.9925   0.9922   0.9897   0.9976</code></pre>
+<p>And it is found that the accuracy on training set is 0.9915881.</p>
 </div>
 <div id="predict" class="section level3">
 <h3>4. Predict</h3>
