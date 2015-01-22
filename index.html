@@ -59,15 +59,13 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 
 
-<div id="abstract" class="section level3">
-<h3>Abstract</h3>
+<div id="abstract" class="section level4">
+<h4>Abstract</h4>
 <p>The goal of your project is to predict the manner in which they did the exercise. This is the ’classe&quot; variable in the training set.</p>
 <hr />
 </div>
 <div id="prepare-data" class="section level3">
-<h3>Prepare data</h3>
-<div id="downloadimport-data" class="section level4">
-<h4>1. Download/Import Data</h4>
+<h3>1. Prepare data</h3>
 <pre class="r"><code>library(RCurl)
 trainingFile &lt;- getURL('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv')
 testingFile  &lt;- getURL('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv')</code></pre>
@@ -78,9 +76,8 @@ training.clean &lt;- training.raw[ , colSums(is.na(training.raw)) == 0]
 dim(training.raw)</code></pre>
 <pre><code>## [1] 19622   160</code></pre>
 </div>
-</div>
-<div id="filter-unrelated-columns" class="section level3">
-<h3>2. Filter unrelated columns</h3>
+<div id="filter-data" class="section level3">
+<h3>2. Filter data</h3>
 <p>First filter out the columns with NA values. Then, filter out the most likely not related columns as X, user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, num_window.</p>
 <pre class="r"><code>no_na_column &lt;- training.raw[ , colSums(is.na(training.raw)) == 0]
 tobe_removed = c('X', 'user_name', 'raw_timestamp_part_1', 'raw_timestamp_part_2', 'cvtd_timestamp', 'new_window', 'num_window')
@@ -113,103 +110,103 @@ print(rfModel)</code></pre>
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 7
 ## 
-##         OOB estimate of  error rate: 0.7%
+##         OOB estimate of  error rate: 0.61%
 ## Confusion matrix:
-##      A    B    C    D    E  class.error
-## A 3347    1    0    0    0 0.0002986858
-## B   11 2262    6    0    0 0.0074594120
-## C    0   19 2032    3    0 0.0107108082
-## D    0    0   33 1894    3 0.0186528497
-## E    0    0    2    4 2159 0.0027713626</code></pre>
+##      A    B    C    D    E class.error
+## A 3344    4    0    0    0 0.001194743
+## B   13 2260    6    0    0 0.008336990
+## C    0   14 2039    1    0 0.007302824
+## D    0    0   28 1902    0 0.014507772
+## E    0    0    2    4 2159 0.002771363</code></pre>
 <p>And proceed with the verification of variable importance measures as produced by random Forest, validation is also applied on traing.valid data set.</p>
 <pre class="r"><code>importance(rfModel)</code></pre>
 <pre><code>##                      MeanDecreaseGini
-## roll_belt                   721.02740
-## pitch_belt                  403.40417
-## yaw_belt                    513.74317
-## total_accel_belt            136.01359
-## gyros_belt_x                 59.29913
-## gyros_belt_y                 67.48988
-## gyros_belt_z                181.75675
-## accel_belt_x                 73.94659
-## accel_belt_y                 76.90462
-## accel_belt_z                265.91894
-## magnet_belt_x               151.99967
-## magnet_belt_y               242.13775
-## magnet_belt_z               237.16547
-## roll_arm                    179.42667
-## pitch_arm                   110.69058
-## yaw_arm                     153.54692
-## total_accel_arm              63.63056
-## gyros_arm_x                  77.81235
-## gyros_arm_y                  81.81145
-## gyros_arm_z                  37.12953
-## accel_arm_x                 154.36517
-## accel_arm_y                  97.51248
-## accel_arm_z                  76.29038
-## magnet_arm_x                143.66002
-## magnet_arm_y                143.56044
-## magnet_arm_z                112.01271
-## roll_dumbbell               252.32483
-## pitch_dumbbell              114.09721
-## yaw_dumbbell                155.72402
-## total_accel_dumbbell        160.37842
-## gyros_dumbbell_x             79.20011
-## gyros_dumbbell_y            146.77877
-## gyros_dumbbell_z             51.69276
-## accel_dumbbell_x            156.58514
-## accel_dumbbell_y            239.96165
-## accel_dumbbell_z            208.36418
-## magnet_dumbbell_x           320.61209
-## magnet_dumbbell_y           405.21353
-## magnet_dumbbell_z           458.99781
-## roll_forearm                334.12319
-## pitch_forearm               471.03431
-## yaw_forearm                  97.93205
-## total_accel_forearm          67.76721
-## gyros_forearm_x              48.83147
-## gyros_forearm_y              79.06145
-## gyros_forearm_z              53.28743
-## accel_forearm_x             189.46921
-## accel_forearm_y              80.93185
-## accel_forearm_z             145.15097
-## magnet_forearm_x            138.49272
-## magnet_forearm_y            131.45741
-## magnet_forearm_z            159.54404</code></pre>
+## roll_belt                   730.45604
+## pitch_belt                  408.21690
+## yaw_belt                    537.69511
+## total_accel_belt            131.66007
+## gyros_belt_x                 59.40865
+## gyros_belt_y                 65.92227
+## gyros_belt_z                186.18417
+## accel_belt_x                 71.79798
+## accel_belt_y                 77.34535
+## accel_belt_z                230.56317
+## magnet_belt_x               146.26267
+## magnet_belt_y               247.90534
+## magnet_belt_z               235.97824
+## roll_arm                    186.46143
+## pitch_arm                   105.45150
+## yaw_arm                     146.29159
+## total_accel_arm              59.36782
+## gyros_arm_x                  80.96462
+## gyros_arm_y                  82.70586
+## gyros_arm_z                  39.60795
+## accel_arm_x                 146.37110
+## accel_arm_y                  97.08371
+## accel_arm_z                  77.42471
+## magnet_arm_x                176.61689
+## magnet_arm_y                125.38661
+## magnet_arm_z                111.75706
+## roll_dumbbell               257.12794
+## pitch_dumbbell              105.20939
+## yaw_dumbbell                149.34473
+## total_accel_dumbbell        159.36099
+## gyros_dumbbell_x             83.21131
+## gyros_dumbbell_y            157.73142
+## gyros_dumbbell_z             52.16005
+## accel_dumbbell_x            157.38470
+## accel_dumbbell_y            235.59998
+## accel_dumbbell_z            195.83412
+## magnet_dumbbell_x           289.63931
+## magnet_dumbbell_y           395.89880
+## magnet_dumbbell_z           458.48705
+## roll_forearm                348.94397
+## pitch_forearm               459.76067
+## yaw_forearm                 106.30604
+## total_accel_forearm          68.07366
+## gyros_forearm_x              49.84529
+## gyros_forearm_y              77.95872
+## gyros_forearm_z              55.20460
+## accel_forearm_x             213.89787
+## accel_forearm_y              82.98972
+## accel_forearm_z             154.91634
+## magnet_forearm_x            136.87856
+## magnet_forearm_y            128.67794
+## magnet_forearm_z            164.34593</code></pre>
 <pre class="r"><code>cfMat &lt;- confusionMatrix(predict(rfModel,newdata=training.valid), training.valid$classe)
 cfMat</code></pre>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 2228    5    0    0    0
-##          B    3 1511   10    0    0
-##          C    1    2 1358   16    2
-##          D    0    0    0 1270    2
-##          E    0    0    0    0 1438
+##          A 2231   15    0    0    0
+##          B    0 1501   14    0    0
+##          C    0    2 1351   18    2
+##          D    0    0    3 1264    6
+##          E    1    0    0    4 1434
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9948          
-##                  95% CI : (0.9929, 0.9962)
+##                Accuracy : 0.9917          
+##                  95% CI : (0.9895, 0.9936)
 ##     No Information Rate : 0.2845          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.9934          
+##                   Kappa : 0.9895          
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9982   0.9954   0.9927   0.9876   0.9972
-## Specificity            0.9991   0.9979   0.9968   0.9997   1.0000
-## Pos Pred Value         0.9978   0.9915   0.9848   0.9984   1.0000
-## Neg Pred Value         0.9993   0.9989   0.9985   0.9976   0.9994
+## Sensitivity            0.9996   0.9888   0.9876   0.9829   0.9945
+## Specificity            0.9973   0.9978   0.9966   0.9986   0.9992
+## Pos Pred Value         0.9933   0.9908   0.9840   0.9929   0.9965
+## Neg Pred Value         0.9998   0.9973   0.9974   0.9967   0.9988
 ## Prevalence             0.2845   0.1935   0.1744   0.1639   0.1838
-## Detection Rate         0.2840   0.1926   0.1731   0.1619   0.1833
-## Detection Prevalence   0.2846   0.1942   0.1758   0.1621   0.1833
-## Balanced Accuracy      0.9987   0.9967   0.9947   0.9936   0.9986</code></pre>
-<p>And it is found that the accuracy on training set is 0.9947744.</p>
+## Detection Rate         0.2843   0.1913   0.1722   0.1611   0.1828
+## Detection Prevalence   0.2863   0.1931   0.1750   0.1622   0.1834
+## Balanced Accuracy      0.9984   0.9933   0.9921   0.9908   0.9968</code></pre>
+<p>And it is found that the accuracy on training set is 0.9917155.</p>
 </div>
 <div id="predict" class="section level3">
 <h3>4. Predict</h3>

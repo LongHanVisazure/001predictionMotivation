@@ -4,12 +4,12 @@ author: "HAN LONG"
 date: '2015-01-13'
 output: html_document
 ---
-### Abstract
+#### Abstract
 The goal of your project is to predict the manner in which they did the exercise. This is the 'classe" variable in the training set.
 
 ---
-### Prepare data
-#### 1. Download/Import Data
+
+### 1. Prepare data
 ```{r eval=FALSE}
 library(RCurl)
 trainingFile <- getURL('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv')
@@ -23,7 +23,7 @@ training.clean <- training.raw[ , colSums(is.na(training.raw)) == 0]
 dim(training.raw)
 ```
 
-### 2. Filter unrelated columns
+### 2. Filter data
 First filter out the columns with NA values. Then, filter out the most likely not related columns as X, user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, num_window. 
 ```{r}
 no_na_column <- training.raw[ , colSums(is.na(training.raw)) == 0]
